@@ -1,0 +1,79 @@
+<div class="container">
+<div class="card"><div >
+    <div class="row mt-5">
+        <div class="col-4 offset-4 mb-5">
+            <form #cropDetails="ngForm" novalidate (ngSubmit)="onSubmit(cropDetails.value)">
+                <h4>Place a sell Request</h4>
+                <hr>
+                <div class="form-group mb-2">
+                    <label for="crop_type">Crop Type </label><br>
+                    <select class="form-control" required #crop_type="ngModel" name="crop_type" required (change)="selectCropType($event)" [(ngModel)]="selectedcroptype">
+                        <option [value]="null"[disabled]="true" [selected]>Select Crop Type</option>
+                        <option [value]="item" *ngFor="let item of cropTypes">
+                            {{item}}
+                        </option>
+                    </select>
+                    <div *ngIf="crop_type.touched && crop_type.invalid" class="alert alert-danger">
+                        <div *ngIf="crop_type.hasError('required')">Season is required.</div>
+                    </div>
+                    <!-- <input #crop_type="ngModel" required type="text" name="crop_type" class="form-control" placeholder="Enter crop type" ngModel> -->
+                </div>
+            
+                <div class="form-group mb-2">
+                    <label for="crop_name">Crop Name </label><br>
+                    <select class="form-control" required #crop_name="ngModel" name="crop_name" (change)="selectCrop($event)" [(ngModel)]="selectedcrop" >
+                        <option [value]="null"[disabled]="true" [selected]>Select Crop</option>
+                        <option [value]="crop.crop_name" *ngFor="let crop of cropNames" >
+                            {{crop.crop_name}}
+                        </option>
+                    </select>
+                    <div *ngIf="crop_type.touched && crop_name.touched && crop_name.invalid" class="alert alert-danger">
+                        <div *ngIf="crop_name.hasError('required')">Crop is required.</div>
+                    </div>
+                    <!-- <input #crop_name="ngModel" type="text" required name="crop_name" class="form-control" placeholder="Enter crop name" ngModel> -->
+                   
+                </div>
+            
+                <div class="form-group mb-2">
+                    <label for="fertilizer_type">Fertilizer Type </label><br>
+                    <select class="form-control" required #fertilizer_type="ngModel" name="fertilizer_type" [(ngModel)]="selectedfertilizer">
+                        <option value="Organic">Organic</option>
+                        <option value="Chemical">Chemical</option>
+                    </select>
+                    <div *ngIf="fertilizer_type.touched && fertilizer_type.touched && fertilizer_type.invalid" class="alert alert-danger">
+                        <div *ngIf="fertilizer_type.hasError('required')">Crop is required.</div>
+                    </div>
+                    <!-- <input #fertilizer_type="ngModel" type="text" required name="fertilizer_type" class="form-control" placeholder="Enter Fertilizer type" ngModel> -->
+                   
+                </div>
+                <div class="form-group mb-2">
+                    <label for="quantity">quantity in Quintal </label><br>
+                    <input #quantity="ngModel" type="number" required name="quantity" class="form-control" placeholder="Enter Quantity" ngModel>
+                    <div *ngIf="quantity.touched && quantity.touched && quantity.invalid" class="alert alert-danger">
+                        <div *ngIf="quantity.hasError('required')">Crop is required.</div>
+                    </div>
+                </div>
+
+                <div class="form-group mb-2">
+                    <label for="base_price">Base price per Quintal</label>
+                    <input #base_price="ngModel" type="number" required name="base_price" class="form-control" placeholder="Enter Base Price" ngModel>
+                    <div *ngIf="base_price.touched && base_price.touched && base_price.invalid" class="alert alert-danger">
+                        <div *ngIf="base_price.hasError('required')">Crop is required.</div>
+                    </div>
+                </div>
+            
+                <div class="form-group mb-3">
+                    <label for="soil_ph_certificate">Soil pH Certificate </label><br>
+                    <input #soil_ph_certificate="ngModel" type="file" required name="soil_ph_certificate" class="form-control" ngModel>
+                    <div *ngIf="soil_ph_certificate.touched && soil_ph_certificate.touched && soil_ph_certificate.invalid" class="alert alert-danger">
+                        <div *ngIf="soil_ph_certificate.hasError('required')">Crop is required.</div>
+                    </div>
+                </div>
+            
+                
+                <input class="btn btn btn-success" type="submit" value="submit">
+            </form>
+        </div>
+    </div>
+</div></div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+    <div id="div2" class="row mt-5 mb-5">
+        <div class="col-10 offset-1">
+          <h3 class="mb-3">Crop Approval Requests</h3>
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Crop Type</th>
+                    <th scope="col">Crop Name</th>
+                    <th scope="col">Base Price</th>
+                    <th scope="col">Msp</th>
+                    <th scope="col">Fertilizer Type</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of croprequest">
+                    <td>{{item.crop_type}}</td>
+                    <td>{{item.crop_name}}</td>
+                    <td>{{item.base_price}}</td>
+                    <td>{{item.msp}}</td>
+                    <td>{{item.fertilizer_type}}</td>
+                    <td><button class="btn btn-success btn-sm" (click)="approve(item.crop_auction_id)">Approve</button></td>
+                  </tr>
+                  
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

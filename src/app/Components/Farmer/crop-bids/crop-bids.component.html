@@ -1,0 +1,12 @@
+<div id="currentbid">
+    <h6>Current Bid</h6>
+    <ul *ngFor="let item of currentBid">
+        <p>{{item.bid}}</p>
+    </ul>
+</div>
+<div>
+    <h6>Previous Bids</h6>
+    <ul class="list-group mb-1" *ngFor="let item of previousBids">
+            <p class="m-0">{{item.bid}}</p>
+    </ul>
+</div>

@@ -1,0 +1,30 @@
+
+<div class="container">
+    <div id="div2" class="row mt-5 mb-5">
+        <div class="col-10 offset-1">
+          <h3 class="mb-3">Sold History</h3>
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Crop Name</th>
+                    <th scope="col">Base Price</th>
+                    <th scope="col">Sold Price</th>
+                    <th scope="col">Total Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of soldlist">
+                    <td>{{item.sold_date | date: 'shortDate'}}</td>
+                    <td>{{item.crop_name}}</td>
+                    <td>{{item.base_price}}</td>
+                    <td>{{item.sold_price}}</td>
+                    <td>{{item.total_price}}</td>
+                  </tr>
+                  
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
